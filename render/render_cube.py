@@ -1,0 +1,1 @@
+# TODO draw cube from state to gui, maybe animate moves
