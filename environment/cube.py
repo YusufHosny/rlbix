@@ -6,13 +6,13 @@ import numpy as np
 class Cube():
 
     def __init__(self):
-        self.state = np.zeros((6, 5, 5, 5)) # WYGBOR color order
-        self.state[0, 1:4, 1:4, 4] += 1 # top white
-        self.state[1, 1:4, 1:4, 0] += 1 # bottom yellow
-        self.state[2, 1:4, 0, 1:4] += 1 # front green
-        self.state[3, 1:4, 4, 1:4] += 1 # back blue
-        self.state[4, 0, 1:4, 1:4] += 1 # left orange
-        self.state[5, 4, 1:4, 1:4] += 1 # right red
+        self.state = np.zeros((6, 5, 5, 5), dtype='float32') # WYGBOR color order
+        self.state[0, 1:4, 1:4, 4] += 1. # top white
+        self.state[1, 1:4, 1:4, 0] += 1. # bottom yellow
+        self.state[2, 1:4, 0, 1:4] += 1. # front green
+        self.state[3, 1:4, 4, 1:4] += 1. # back blue
+        self.state[4, 0, 1:4, 1:4] += 1. # left orange
+        self.state[5, 4, 1:4, 1:4] += 1. # right red
         self.moves = [self.front, self.front_p, self.right, self.right_p,
                           self.up, self.up_p, self.left, self.left_p,
                           self.back, self.back_p, self.down, self.down_p]
@@ -114,11 +114,11 @@ class Cube():
         return copy.deepcopy(self.state)
     
     def reset(self):
-        self.state = np.zeros((6, 5, 5, 5)) # WYGBOR color order
-        self.state[0, 1:3, 1:3, 0] += 1 # top white
-        self.state[1, 1:3, 1:3, 4] += 1 # bottom yellow
-        self.state[2, 1:3, 0, 1:3] += 1 # front green
-        self.state[3, 1:3, 5, 1:3] += 1 # back blue
-        self.state[4, 0, 1:3, 1:3] += 1 # left orange
-        self.state[5, 5, 1:3, 1:3] += 1 # right red
+        self.state = np.zeros((6, 5, 5, 5), dtype='float32') # WYGBOR color order
+        self.state[0, 1:4, 1:4, 4] += 1. # top white
+        self.state[1, 1:4, 1:4, 0] += 1. # bottom yellow
+        self.state[2, 1:4, 0, 1:4] += 1. # front green
+        self.state[3, 1:4, 4, 1:4] += 1. # back blue
+        self.state[4, 0, 1:4, 1:4] += 1. # left orange
+        self.state[5, 4, 1:4, 1:4] += 1. # right red
         return copy.deepcopy(self.state)
